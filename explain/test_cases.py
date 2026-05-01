@@ -7,7 +7,7 @@ from explain_module import explain_circuit
 
 TEST_CASES = [
     {
-        "label": "Basic LED Circuitsss",
+        "label": "Basic LED Circuit",
         "input": {
             "components": ["battery", "resistor", "led"],
             "connections": ["battery -> resistor -> led"]

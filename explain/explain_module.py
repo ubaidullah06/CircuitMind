@@ -14,10 +14,13 @@ COMPONENT_INFO = {
     "zener_diode":      {"role": "voltage regulator",  "description": "maintains a stable reference voltage"},
     "transistor":       {"role": "switch/amplifier",   "description": "amplifies signals or acts as an electronic switch"},
     "mosfet":           {"role": "switch",             "description": "controls large currents using a small gate voltage"},
-    "op_amp":           {"role": "amplifier",          "description": "amplifies the difference between two input signals"},
-    "555_timer":        {"role": "timer IC",           "description": "generates timing signals and pulses"},
-    "arduino":          {"role": "microcontroller",    "description": "runs code to control other components"},
-    "microcontroller":  {"role": "microcontroller",    "description": "executes programmed logic to control the circuit"},
+    "op_amp":           {"role": "amplifier",            "description": "amplifies the difference between two input signals"},
+    "op-amp":           {"role": "amplifier",            "description": "amplifies the difference between two input signals"},
+    "555_timer":        {"role": "timer IC",             "description": "generates timing signals and pulses"},
+    "arduino":          {"role": "microcontroller",      "description": "runs code to control other components"},
+    "microcontroller":  {"role": "microcontroller",      "description": "executes programmed logic to control the circuit"},
+    "npn_transistor":   {"role": "NPN switch/amplifier", "description": "allows current from collector to emitter when base is triggered with a positive signal"},
+    "pnp_transistor":   {"role": "PNP switch/amplifier", "description": "allows current from emitter to collector when base is pulled low"},
     "buzzer":           {"role": "sound output",       "description": "produces an audible beep or tone"},
     "motor":            {"role": "mechanical output",  "description": "converts electrical energy into rotational motion"},
     "speaker":          {"role": "audio output",       "description": "converts electrical signals into sound waves"},
@@ -36,7 +39,7 @@ COMPONENT_INFO = {
 }
 
 NEEDS_CURRENT_LIMIT = {"led", "diode", "zener_diode"}
-CURRENT_LIMITERS    = {"resistor", "potentiometer", "mosfet", "transistor"}
+CURRENT_LIMITERS    = {"resistor", "potentiometer", "mosfet", "transistor", "npn_transistor", "pnp_transistor"}
 POWER_SOURCES       = {"battery", "power_supply", "solar_cell"}
 
 
@@ -174,5 +177,3 @@ def pretty_print(result: dict[str, Any]) -> None:
         print("\n⚠️  WARNINGS:")
         for w in result["warnings"]:
             print(f"  ! {w}")
-
-
