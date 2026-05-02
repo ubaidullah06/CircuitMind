@@ -59,6 +59,7 @@ def export_module(json_input, save_to_file=False):
         "circuit_name": name,
         "components": ", ".join(components),
         "connections": ", ".join(c.replace("->", "→") for c in connections),
+        "spice_netlist": spice,
 
     }
 
