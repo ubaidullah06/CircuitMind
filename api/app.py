@@ -1,11 +1,7 @@
-# api/app.py
-# Developer: Alia
-# CircuitMind FastAPI Server
 
 import sys
 import os
 
-# Yeh line zaroori hai — Python ko batata hai ke modules kahan hain
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from fastapi import FastAPI
@@ -41,7 +37,6 @@ class ExportRequest(BaseModel):
 
 @app.get("/")
 def root():
-    """Check karo API chal rahi hai ya nahi"""
     return {
         "status": "running",
         "message": "CircuitMind API is live!",
@@ -57,7 +52,6 @@ def root():
 @app.post("/generate")
 def generate(req: GenerateRequest):
     """
-    Text se circuit JSON banao
     Input:  { "prompt": "make me a LED circuit" }
     Output: circuit JSON
     """
@@ -67,7 +61,6 @@ def generate(req: GenerateRequest):
 @app.post("/explain")
 def explain(req: CircuitRequest):
     """
-    Circuit JSON ko plain English mein explain karo
     Input:  { "circuit_json": { "components": [...], "connections": [...] } }
     Output: explanation text + component details + warnings
     """
@@ -77,7 +70,6 @@ def explain(req: CircuitRequest):
 @app.post("/diagnose")
 def diagnose(req: CircuitRequest):
     """
-    Circuit mein problems dhundo
     Input:  { "circuit_json": { "components": [...], "connections": [...] } }
     Output: issues list + passed (true/false)
     """
@@ -87,7 +79,6 @@ def diagnose(req: CircuitRequest):
 @app.post("/export")
 def export(req: ExportRequest):
     """
-    Circuit ko SPICE ya SVG format mein export karo
     Input:  { "circuit_json": {...}, "export_format": "spice" }
     Output: spice_netlist ya svg_file
     """
@@ -98,7 +89,6 @@ def export(req: ExportRequest):
 @app.post("/generate-and-explain")
 def generate_and_explain(req: GenerateRequest):
     """
-    Ek hi request mein: generate + explain + diagnose
     Input:  { "prompt": "LED circuit banao" }
     Output: circuit + explanation + diagnosis
     """
